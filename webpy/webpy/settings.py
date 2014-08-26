@@ -39,7 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news',
-    'polls'
+    'polls',
+    'userApp',
+    'essayApp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +60,7 @@ WSGI_APPLICATION = 'webpy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
+DATABASE_ROUTERS = ['webpy.dbsettings.appdb']
 DATABASES = {
     #'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
@@ -70,7 +72,24 @@ DATABASES = {
         'NAME' : 'webpy',
         'USER' : 'root',
         'PASSWORD' : '',
+    },
+    'userdb': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'userdb',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
+    'essaydb': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'essaydb',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
+
     
 }
 
